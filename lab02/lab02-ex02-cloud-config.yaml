@@ -1,0 +1,20 @@
+#cloud-config
+
+# You will need to customize the following items in this cloud-config:
+
+# DISCOVERY_URL: replace with the discovery URL you generated in the 
+# previous step.
+
+coreos:
+  etcd2:
+    # generate a new URL for each cluster: https://discovery.etcd.io/new?size=3
+    # specify the initial size of your cluster with ?size=X
+    discovery: DISCOVERY_URL
+    advertise-client-urls: http://$private_ipv4:2379
+    initial-advertise-peer-urls: http://$private_ipv4:2380
+    # listen on only the official ports
+    listen-client-urls: http://$private_ipv4:2379
+    listen-peer-urls: http://$private_ipv4:2380
+  units:
+    - name: etcd2.service
+      command: start
