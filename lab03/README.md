@@ -22,7 +22,7 @@ coreos:
     advertise-client-urls: http://$private_ipv4:2379
     initial-advertise-peer-urls: http://$private_ipv4:2380
     # listen on only the official ports
-    listen-client-urls: http://$private_ipv4:2379
+    listen-client-urls: http://$private_ipv4:2379,http://127.0.0.1:2379
     listen-peer-urls: http://$private_ipv4:2380
     heartbeat-interval: 10 
     election-timeout: 50
@@ -50,7 +50,7 @@ coreos:
     advertise-client-urls: http://$private_ipv4:2379
     initial-advertise-peer-urls: http://$private_ipv4:2380
     # listen on only the official ports
-    listen-client-urls: http://$private_ipv4:2379
+    listen-client-urls: http://$private_ipv4:2379,http://127.0.0.1:2379
     listen-peer-urls: http://$private_ipv4:2380
     heartbeat-interval: 10 
     election-timeout: 1000
